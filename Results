@@ -10,7 +10,7 @@ class Results extends Component{
         }
     }
     componentDidMount(){
-        UserService.getUsers().then((res)=>
+        UserService.getResult().then((res)=>
         {
             this.setState({votes:res.data})
         })
@@ -24,10 +24,9 @@ class Results extends Component{
                     <table className="table table-striped table-bordered">
                         <thead>
                             <tr>
-                                <th>Employee id</th>
-                                <th>Employee name </th>
-                                <th>Employee pass</th>
-                                <th>Employee votes</th>
+                                <th>Candidate name</th>
+                                <th>Candidate party </th>
+                                <th>Candidate votes</th>
                                 
 
                             </tr>
@@ -37,11 +36,11 @@ class Results extends Component{
                             {
                                 this.state.votes.map(
                                     votes =>
-                                    <tr key={votes.ide}>
-                                        <td>{votes.ide}</td>
+                                    <tr key={votes.cid}>
+                                        
                                         <td>{votes.name}</td>
-                                        <td>{votes.pass}</td>
-                                        <td>{votes.votes}</td>
+                                        <td>{votes.party}</td>
+                                        <td>{votes.vote}</td>
                                     </tr>
                                     
                                 )
